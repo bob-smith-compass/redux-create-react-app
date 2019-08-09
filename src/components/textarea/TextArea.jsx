@@ -5,7 +5,7 @@ export default class TextArea extends React.Component {
     super(props);
     this.state = {
       value: "Please write an essay about your favorite DOM element.",
-      ddl: ''
+      ddl: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -13,7 +13,10 @@ export default class TextArea extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ 
+        value: event.target.value,
+        ddl: event.target.value
+     });
   }
 
   handleSubmit(event) {
@@ -28,8 +31,9 @@ export default class TextArea extends React.Component {
           Essay:
           <textarea value={this.state.value} onChange={this.handleChange} />
         </label>
-        <select value={this.state.ddl} onChange={this.handleChange} >
-          <option value="grapefruit">Grapefruit</option>
+        {/* <select value={this.state.ddl} onChange={this.handleChange} > */}
+        <select def={this.state.ddl} onChange={this.handleChange} >
+          <option defaultValue={this.state.ddl} >Grapefruit</option>
           <option value="lime">Lime</option>
           <option value="coconut">Coconut</option>
           <option value="mango">Mango</option>
