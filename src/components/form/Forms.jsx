@@ -37,6 +37,9 @@ export default class Forms extends Component {
      * We can combine the two by making the React state be the “single source of truth”. 
      * Then the React component that renders a form also controls what happens in that form on subsequent user input. 
      * An input form element whose value is controlled by React in this way is called a “controlled component”.
+     * 
+     * In React, a <textarea> uses a value attribute instead. This way, a form using a 
+     * <textarea> can be written very similarly to a form that uses a single-line input:
      */
   render() {
     return (
