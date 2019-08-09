@@ -13,7 +13,6 @@ export default class Forms extends Component {
 
     // handleChange = (event) => {
     handleChange(event) {
-        debugger;
         event.preventDefault();
         this.setState({
             name: event.target.value.toUpperCase(),
@@ -54,8 +53,8 @@ export default class Forms extends Component {
           </label>
           <input type="submit" value="Submit" />
           <div>{this.state.originalCurrency}</div>
-          <textarea name="" id="" cols="30" rows="10">
-              {JSON.stringify(this.state)}
+          <textarea name="" id="" cols="30" rows="10" defaultValue={JSON.stringify(this.state)}>
+              
           </textarea>
         </form>
       </div>
