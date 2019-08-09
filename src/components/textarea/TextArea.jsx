@@ -4,7 +4,8 @@ export default class TextArea extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "Please write an essay about your favorite DOM element."
+      value: "Please write an essay about your favorite DOM element.",
+      ddl: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,12 +28,10 @@ export default class TextArea extends React.Component {
           Essay:
           <textarea value={this.state.value} onChange={this.handleChange} />
         </label>
-        <select>
+        <select value={this.state.ddl} onChange={this.handleChange} >
           <option value="grapefruit">Grapefruit</option>
           <option value="lime">Lime</option>
-          <option selected value="coconut">
-            Coconut
-          </option>
+          <option value="coconut">Coconut</option>
           <option value="mango">Mango</option>
         </select>
 
