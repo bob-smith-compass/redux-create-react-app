@@ -16,7 +16,10 @@ import debounce from 'lodash/debounce';
 let defaultState = 0; // does not have to be an object
 
 function reducer(state = defaultState, action) {
-    return state + 1;
+    if(action.type == 'INCREASE'){
+        return state + 1;
+    }
+    return state;
 }
 
 let store = createStore(reducer);
@@ -34,6 +37,8 @@ store.subscribe(function() {
  * update state/store
  * dispatch
  */
+store.dispatch({type: 'INCREASE'});
+store.dispatch({type: 'INCREASE'});
 store.dispatch({type: 'INCREASE'});
 
 
