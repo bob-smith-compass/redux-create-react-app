@@ -17,6 +17,7 @@ let defaultState = 0; // does not have to be an object
 
 function reducer(state = defaultState, action) {
     if(action.type == 'INCREASE'){
+        console.log(`adtion`, action.type);
         return state + 1;
     }
     return state;
