@@ -24,9 +24,9 @@ export default class Ddl extends Component {
             <div>
                 <select name="ddl" id="" onChange={this.changeHandler}>
                     {/* {this.state.options.map( e => <option>{e}</option>)} */}
-                    {this.props.options.map( e => <option>{e}</option>)}
+                    {this.props.options.map( e => <option key={e}>{e}</option>)}
                 </select>
-                Comments: <input type="text" ref={input => this.setState({amout: input})}/>
+                {/* Comments: <input type="text" ref={input => this.setState({amout: input})}/> */}
                 <button onClick={this.showState}>State</button>
             </div>
         )
