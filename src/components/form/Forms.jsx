@@ -13,6 +13,19 @@ export default class Forms extends Component {
 
     // handleChange = (event) => {
     handleChange(event) {
+      switch (event.target.name) {
+        case 'name':
+          console.log(event.target.name, event.target.value);
+          break;
+        case 'textarea':
+          console.log(event.target.name, event.target.value);
+          break;
+        case 'fruits':
+          console.log(event.target.name, event.target.value);
+          break;
+        default:
+          break;
+      }
         event.preventDefault();
         this.setState({
             name: event.target.value.toUpperCase(),
@@ -40,6 +53,21 @@ export default class Forms extends Component {
      * 
      * In React, a <textarea> uses a value attribute instead. This way, a form using a 
      * <textarea> can be written very similarly to a form that uses a single-line input:
+     * 
+     * Overall, this makes it so that 
+     * <input type="text">, <textarea>, and <select> all work very similarly - t
+     * hey all accept a value attribute that you can use to implement a controlled component.
+     * 
+     * In HTML, an <input type="file"> lets the user choose one or more files from their device storage to be uploaded to a server or 
+     * manipulated by JavaScript via the File API.
+     * <input type="file" />
+     * Because its value is read-only, it is an uncontrolled component in React. 
+     * It is discussed together with other uncontrolled components later in the documentation.
+     * https://reactjs.org/docs/forms.html
+     * 
+     * When you need to handle multiple controlled input elements, you can add a 
+     * name attribute to each element and let the 
+     * handler function choose what to do based on the value of event.target.name.
      */
   render() {
     return (
@@ -48,7 +76,7 @@ export default class Forms extends Component {
           <label>
             Name:
             <input type="text" name="name" onChange={this.handleChange}/>
-            <select value={this.state.originalCurrency} onChange={this.handleChange}>
+            <select name="currency" value={this.state.originalCurrency} onChange={this.handleChange}>
                 <option value="EUR">EUR</option>
                 <option value="USD">USD</option>
                 <option value="CDN">CDN</option>
@@ -56,9 +84,16 @@ export default class Forms extends Component {
           </label>
           <input type="submit" value="Submit" />
           <div>{this.state.originalCurrency}</div>
-          <textarea name="" id="" cols="30" rows="10" defaultValue={JSON.stringify(this.state)}>
+          <textarea name="textarea" id="" cols="30" rows="10" defaultValue={JSON.stringify(this.state)}>
               
           </textarea>
+          <br/>
+          <select name="fruits" multiple={true} value={['One', 'Two', 'Three']} onChange={this.handleChange}>
+            <option value="one">Orange</option>
+            <option value="two">Apple</option>
+            <option value="three">Banana</option>
+          </select>
+          <input type="file" />
         </form>
       </div>
     );
