@@ -6,7 +6,8 @@ export default class Ddl extends Component {
         console.log(props)
         this.state = {
             selected: '',
-            options: this.props.option
+            options: this.props.option,
+            amout: ''
         }
     }
     changeHandler = (e) => {
@@ -25,6 +26,7 @@ export default class Ddl extends Component {
                     {/* {this.state.options.map( e => <option>{e}</option>)} */}
                     {this.props.options.map( e => <option>{e}</option>)}
                 </select>
+                Comments: <input type="text" ref={input => this.setState({amout: input})}/>
                 <button onClick={this.showState}>State</button>
             </div>
         )
