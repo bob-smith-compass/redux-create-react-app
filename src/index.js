@@ -15,18 +15,19 @@ import debounce from 'lodash/debounce';
 
 // let defaultState = 0; // does not have to be an object
 let defaultState = {
-    originalAmout: 0
+    originalAmout: 0,
+    amount: 0
 }
 
 function reducer(state = defaultState, action) {
     if(action.type === 'CHANGE_ORIGINAL_AMMOUTN'){
         console.log(`adtion`, action.type);
-        defaultState = state = Object.assign({}, state, {originalAmout: action.data}) ;
-        return state;
+        return defaultState = state = Object.assign({}, state, {originalAmout: action.data}) ;
+        // return state;
     }
     if(action.type == 'INCREASE'){
         console.log(`adtion`, action.type);
-        return state + 1;
+        return Object.assign({}, state, {amount: state.amount + 1})
     }
     return state;
 }
@@ -48,6 +49,7 @@ store.subscribe(function() {
 store.dispatch({type: 'INCREASE'});
 store.dispatch({type: 'CHANGE_ORIGINAL_AMMOUTN', data: 100});
 store.dispatch({type: 'INCREASE'});
+store.dispatch({type: ''});
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
