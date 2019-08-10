@@ -13,9 +13,17 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
 
-let defaultState = 0; // does not have to be an object
+// let defaultState = 0; // does not have to be an object
+let defaultState = {
+    originalAmout: 0
+}
 
 function reducer(state = defaultState, action) {
+    if(action.type === 'CHANGE_ORIGINAL_AMMOUTN'){
+        console.log(`adtion`, action.type);
+        defaultState = state = Object.assign({}, state, {originalAmout: action.data}) ;
+        return state;
+    }
     if(action.type == 'INCREASE'){
         console.log(`adtion`, action.type);
         return state + 1;
@@ -24,7 +32,6 @@ function reducer(state = defaultState, action) {
 }
 
 let store = createStore(reducer);
-
 
 /**
  * Read from the store
@@ -39,11 +46,8 @@ store.subscribe(function() {
  * dispatch
  */
 store.dispatch({type: 'INCREASE'});
+store.dispatch({type: 'CHANGE_ORIGINAL_AMMOUTN', data: 100});
 store.dispatch({type: 'INCREASE'});
-store.dispatch({type: 'INCREASE'});
-
-
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
