@@ -23,7 +23,7 @@ let store = createStore(reducer);
  * update state/store
  * dispatch
  */
-store.dispatch()
+store.dispatch({})
 
 function App() {
   return (
