@@ -20,8 +20,6 @@ export default class Ddl extends Component {
 
     store.dispatch({ type: "CHANGE_CURRENCY", data: e.target.value });
 
-    store.dispatch({ type: "CHANGE_ORIGINAL_AMMOUTN", data: 100 });
-
     this.setState({
       selected: e.target.value
     });
