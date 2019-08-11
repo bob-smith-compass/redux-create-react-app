@@ -35,16 +35,28 @@ import store from './store/configStore';
 //  */
 // store.dispatch({type: 'INCREASE'});
 
+
+
 function App() {
+  
+  function handleChange(e) {
+    store.setStore({})
+    console.log(e)
+  }
+
   return (
     <div className="App">
       {/* <Form /> */}
 
       {/* <TextArea /> */}
       <Conversion />
-      <textarea name="" id="" cols="30" rows="10" >
-        {JSON.stringify(store)}
+      <textarea 
+        onChange={handleChange}
+        // value={JSON.stringify(store)} 
+        value={JSON.stringify(store.getState())} 
+        name="" id="" cols="30" rows="10" >
       </textarea>
+      <button onClick={store.subscribe(function() {console.log(store)})}>Subscribe to store</button>
     </div>
   );
 }
