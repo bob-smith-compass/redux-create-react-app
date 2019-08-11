@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Form from './components/form/Forms';
 import TextArea from './components/textarea/TextArea';
@@ -35,30 +35,60 @@ import store from './store/configStore';
 //  */
 // store.dispatch({type: 'INCREASE'});
 
+let textArea
 
 
-function App() {
-  
-  function handleChange(e) {
-    store.setStore({})
-    console.log(e)
+
+
+// function App() {
+class App extends React.Component {
+
+  // useEffect(() => {
+  //   store.subscribe(function () {
+  //     textArea = store.getState()
+  //     console.log(textArea)
+  //   })
+  //   // console.log(textArea)
+  //   // store.setState({})
+  // })
+
+  componentDidMount() {
+    store.subscribe(function () {
+      textArea = store.getState()
+      console.log(textArea)
+    })
   }
 
-  return (
-    <div className="App">
-      {/* <Form /> */}
+  handleChange(e) {
+    // store.setState({})
+    store.getState()
+    console.log(e)
+    // console.log(store)
+    console.log(store.getState())
+  }
 
-      {/* <TextArea /> */}
-      <Conversion />
-      <textarea 
-        onChange={handleChange}
-        // value={JSON.stringify(store)} 
-        value={JSON.stringify(store.getState())} 
-        name="" id="" cols="30" rows="10" >
-      </textarea>
-      <button onClick={store.subscribe(function() {console.log(store)})}>Subscribe to store</button>
-    </div>
-  );
+  render() {
+
+    return (
+      <div className="App">
+        {/* <Form /> */}
+
+        {/* <TextArea /> */}
+        <Conversion />
+        <textarea
+          onChange={this.handleChange}
+          // value={JSON.stringify(store)} 
+          // value={JSON.stringify(store.getState())} 
+          defaultValue={JSON.stringify(store.getState())}
+          // value={JSON.stringify(store.getState())}
+          value={JSON.stringify(textArea)}
+          name="" id="" cols="30" rows="10" >
+        </textarea>
+        <button onClick={store.subscribe(function () { console.log(store) })}>Subscribe to store</button>
+      </div>
+    );
+  }
+
 }
 
 export default App;
