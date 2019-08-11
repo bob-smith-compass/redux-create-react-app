@@ -1,3 +1,10 @@
+# Babel
+
+`...state` spread operator will not work out of the box with create-react-app
+
+`yarn add babel-preset-react-app` [https://www.npmjs.com/package/babel-preset-react-app](https://www.npmjs.com/package/babel-preset-react-app)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

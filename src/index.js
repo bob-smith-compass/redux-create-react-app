@@ -27,7 +27,8 @@ function reducer(state = defaultState, action) {
     }
     if(action.type == 'INCREASE'){
         console.log(`adtion`, action.type);
-        return Object.assign({}, state, {amount: state.amount + 1})
+        // return Object.assign({}, state, {amount: state.amount + 1})
+        return {...state, {amount: state.amount + 1}} // NOT SUPPORTED OUR OF THE BOX WITH create-react-app
     }
     return state;
 }
