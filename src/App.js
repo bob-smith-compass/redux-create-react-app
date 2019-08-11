@@ -3,6 +3,7 @@ import './App.css';
 import Form from './components/form/Forms';
 import TextArea from './components/textarea/TextArea';
 import Conversion from './components/conversion/Conversion';
+import store from './store/configStore';
 
 
 
@@ -41,6 +42,9 @@ function App() {
 
       {/* <TextArea /> */}
       <Conversion />
+      <textarea name="" id="" cols="30" rows="10" >
+        {JSON.stringify(store)}
+      </textarea>
     </div>
   );
 }
