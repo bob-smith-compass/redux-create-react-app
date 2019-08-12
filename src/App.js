@@ -4,6 +4,7 @@ import Form from './components/form/Forms';
 import TextArea from './components/textarea/TextArea';
 import Conversion from './components/conversion/Conversion';
 import store from './store/configStore';
+import Hook from './hooks/Hook';
 
 
 
@@ -85,6 +86,7 @@ class App extends React.Component {
           name="" id="" cols="30" rows="10" >
         </textarea>
         <button onClick={store.subscribe(function () { console.log(store) })}>Subscribe to store</button>
+        <Hook />
       </div>
     );
   }
