@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import store from "../../store/configStore";
+import Hook from "../../hooks/Hook";
 
 store.subscribe(function() {
   console.log(store);
@@ -38,6 +39,7 @@ export default class Ddl extends Component {
         </select>
         {/* Comments: <input type="text" ref={input => this.setState({amout: input})}/> */}
         <button onClick={this.showState}>State</button>
+        <Hook />
       </div>
     );
   }
