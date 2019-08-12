@@ -3,6 +3,7 @@ import axios from 'axios';
 import devounce from 'lodash/debounce';
 import Ddl from '../ddl/Ddl';
 import store from '../../store/configStore';
+import * as actions from '../../actions/actions';
 
 /**
  * Read from the store
@@ -16,8 +17,10 @@ store.subscribe(function() {
    * update state/store
    * dispatch
    */
-  store.dispatch({type: 'INCREASE'});
-  store.dispatch({type: 'CHANGE_ORIGINAL_AMMOUTN', data: 100});
+//   store.dispatch({type: 'INCREASE'});
+  store.dispatch(actions.increase());
+//   store.dispatch({type: 'CHANGE_ORIGINAL_AMMOUTN', data: 100});
+  store.dispatch(actions.increaseAmout());
   store.dispatch({type: 'INCREASE'});
   store.dispatch({type: ''});
 
