@@ -1,7 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
+import $ from 'jquery'; // Bootstrap
+import Popper from 'popper.js'; // Bootstrap
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import React from 'react';
