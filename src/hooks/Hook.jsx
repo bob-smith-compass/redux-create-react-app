@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Effect from './Effect';
 
 const Hook = () => {
     /**
@@ -34,6 +35,7 @@ const Hook = () => {
             <button onClick={ () => setObj({fname: 'Sean', lname: 'Shams'}) }>Sean Shams</button>
             <button onClick={ () => setObj({fname: 'Abel', lname: 'Shams'}) }>Abel</button>
             <p>{obj.fname} {obj.lname} is working for {company} living in {city}</p>
+            <Effect />
         </div>
     );
 }
